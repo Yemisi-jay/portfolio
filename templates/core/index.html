@@ -1,0 +1,68 @@
+{% load static %}
+
+<head>
+    <link rel ="stylesheet" href="{% static 'style.css'  %}">
+    <title> Portfolio page</title>
+</head>
+<body>
+
+{% block content %}
+    <div class="top">
+        <h1>My personal portfolio</h1>
+    </div>
+<header class="navbar">
+    <div class="nav-container">
+        <h2 class="logo">Oluwayemisi Essien</h2>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact" class="btn-primary">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero"></section>
+
+<section class="about">
+    <h2>About Me</h2>
+    <p>
+        I am a backend software developer with experience building
+        database-driven applications using Django and Django REST Framework.
+        I enjoy solving problems and building scalable systems.
+    </p>
+</section>
+
+<section class="projects"></section>
+
+<section class="skills" class="skills">
+        <h2>Skills</h2>
+
+    <ul class="skill-list">
+        <li>Python</li>
+        <li>Django</li>
+        <li>Django REST Framework</li>
+        <li>SQL</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Git</li>
+    </ul>
+</section>
+
+<section class="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: oluwayemisiessien@gmail.com</p>
+
+    <p>
+        <a href="#">GitHub</a> ·
+        <a href="#">LinkedIn</a>
+    </p>
+</section>
+<footer class="footer">
+    <p>© 2026 Oluwayemisi Essien</p>
+</footer>
+{% endblock %}
+</body>
