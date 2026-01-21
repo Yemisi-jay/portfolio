@@ -1,41 +1,445 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fafafa;
+  color: #1f1f1f;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reserve space at top for fixed navbar */
+body {
+  padding-top: 72px;
+}
+
+/* Navigation Styles */
 .navbar {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-    z-index: 1000;
+  width: 100%;
+  background-color: #000;
+  padding: 16px 32px;
+  color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+/* Logo Block */
+.logo-block {
+  width: 48px;
+  height: 48px;
+  background-color: #e9e9e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #000;
+}
 
+/* Navigation Right Section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+/* Mobile toggle button (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle .hamburger::before { top: -7px; }
+.nav-toggle .hamburger::after { top: 7px; }
+
+/* Navigation Links */
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 24px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #334155;
-    font-weight: 500;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.2s ease, transform 0.15s ease;
+  position: relative;
+  display: inline-block;
 }
 
-.about {
-    margin-top: 20px;
-    padding: 20px;
-    max-width: 800px;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  background: #ffd166;
+  transition: width 0.25s ease;
 }
 
-.about h2 {
+.nav-links a:hover {
+  color: #ffd166;
+  transform: translateY(-3px);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Contact Button */
+.btn-contact {
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: transparent;
+  border: 1.5px solid #ffffff;
+  border-radius: 50px;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.15s ease;
+}
+
+.btn-contact:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: translateY(-3px);
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 73px);
+}
+
+.main-content p {
+  color: #737373;
+  font-size: 18px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .logo-block {
+    width: 120px;
+    height: 32px;
+  }
+
+  .nav-right {
+    gap: 24px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .btn-contact {
+    padding: 8px 16px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* show mobile toggle */
+  .nav-toggle { display: inline-flex; }
+
+  .nav-right { gap: 0; }
+
+  /* hide inline links by default on small screens */
+  .nav-links {
+    display: none;
+  }
+
+  /* when nav is opened, show nav links as full-width vertical menu */
+  .navbar.nav-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: absolute;
+    top: 72px;
+    right: 16px;
+    background: #000;
+    padding: 18px 24px;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    z-index: 1100;
+  }
+
+  .nav-container #nav-toggle:checked ~ .nav-right .nav-links a {
+    color: #fff;
+    padding: 6px 8px;
+  }
+}
+
+/* ================= HERO RIGHT ================= */
+.hero-right {
+    width: 50%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-right img {
+    max-width: 70%;
+    height: auto;
+}
+
+/* ================= HERO LAYOUT ================= */
+.hero {
+  display: flex;
+  min-height: 80vh;
+  overflow: hidden;
+}
+
+.hero-left {
+  width: 50%;
+  background: #e9e9e9;
+  padding: 96px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-left .intro {
+  color: #6b6b6b;
+  margin-bottom: 8px;
+}
+
+.hero-left h1 {
+  font-size: 48px;
+  margin: 6px 0 8px;
+}
+
+.hero-left .role {
+  color: #9a9a9a;
+  margin-bottom: 24px;
+}
+
+/* give the black right panel a diagonal edge */
+.hero-right {
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ================= IT BERRIES ================= */
+.berries {
+    background: #111;
+    color: #fff;
+  padding: 46px 80px;
+  margin-top: -40px;
+}
+
+.berries h2 {
     margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.berries p {
+    max-width: 700px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+}
+
+/* ================= ABOUT ================= */
+.about {
+    padding: 80px 120px;
+    text-align: center;
+}
+
+.section-title {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid #111;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.about-text {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 14px;
+}
+
+.explore {
+    display: inline-block;
+    margin-bottom: 60px;
+    text-decoration: none;
+    color: #111;
+    border-bottom: 1px solid #111;
+}
+
+/* ================= SERVICES ================= */
+.services {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.service {
+    width: 30%;
+}
+
+.service h4 {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.service p {
+    font-size: 13px;
+    color: #555;
+}
+
+/* ================= SKILLS ================= */
+.skills {
+    padding: 60px;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .navbar nav {
+        margin-top: 15px;
+    }
+
+    .navbar nav a {
+        display: block;
+        margin: 10px 0;
+        color: #000;
+    }
+
+    .contact-btn {
+        border-color: #000;
+    }
+
+    /* HERO */
+    .hero {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .hero-left,
+    .hero-right {
+        width: 100%;
+    }
+
+    .hero-right {
+        order: -1;
+        padding: 40px 0;
+    }
+
+    .hero-left {
+        padding: 60px 30px;
+        text-align: center;
+    }
+
+    .hero-left h1 {
+        font-size: 32px;
+    }
+
+    .socials span {
+        margin: 5px;
+    }
+
+    /* IT BERRIES */
+    .berries {
+        padding: 40px 30px;
+        text-align: center;
+    }
+
+    /* ABOUT */
+    .about {
+        padding: 60px 30px;
+    }
+
+    /* SERVICES */
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+
+    .hero-left {
+        padding: 120px 50px;
+    }
+
+    .services {
+        flex-wrap: wrap;
+    }
+
+    .service {
+        width: 45%;
+        margin-bottom: 30px;
+    }
 }
 

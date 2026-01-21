@@ -1,45 +1,106 @@
 {% load static %}
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel ="stylesheet" href="{% static 'style.css'  %}">
-    <title> Portfolio page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title> Portfolio Oluwayemisi Essien</title>
 </head>
 <body>
 
 {% block content %}
-    <div class="top">
-        <h1>My personal portfolio</h1>
+    {% comment %} <div class="top">
+        <h1>My personal portfolio</h1> {% endcomment %}
     </div>
 <header class="navbar">
+    <nav role="navigation">
     <div class="nav-container">
-        <h2 class="logo">Oluwayemisi Essien</h2>
+      <!-- Logo/Brand area - dark block -->
+     <div class="logo-block"><a href="#" class="logo-link">OE</a></div>
 
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact" class="btn-primary">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+            <!-- Mobile nav toggle (CSS-only) -->
+            <input type="checkbox" id="nav-toggle" hidden />
+            <label class="nav-toggle" for="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </label>
+
+      <!-- Navigation links and CTA -->
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#about">About me</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+        </ul>
+
+        <a href="#contact" class="btn-contact">CONTACT ME</a>
+      </div>
+        </div>
+    </nav>
 </header>
 
-<section class="hero"></section>
 
-<section class="about">
-    <h2>About Me</h2>
+{% comment %} HERO SECTION {% endcomment %}
+<section class="hero">
+    <div class="hero-left">
+        <p class="intro">Hi, I am</p>
+        <h1>Oluwayemisi Essien</h1>
+        <p class="role">Backend Developer</p>
+
+        <div class="socials">
+            <span>INSTAGRAM</span>
+            <span>GitHub</span>
+            <span>LinkedIn</span>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <img src="images/profile_picture.JPG" alt="Profile Image">
+    </div>
+</section>
+{% comment %} IT BERRY SECTION {% endcomment %}
+<section class="berries">
+    <h2>IT BERRIES</h2>
     <p>
+        Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus.
+        Sed ornare sit amet lorem sed viverra. In vel urna quis libero viverra facilisis ut ac est.
+    </p>
+    <a href="#" class="read-more">READ MORE</a>
+</section>
+
+
+
+<section id="about" class="about">
+    <div class="section-title">About Me</div>
+    <p class="about-text">
         I am a backend software developer with experience building
         database-driven applications using Django and Django REST Framework.
         I enjoy solving problems and building scalable systems.
     </p>
+    
+    <a href="#" class="explore">EXPLORE</a>
+
+    <div class="services">
+        <div class="service">
+            <h4>DESIGN</h4>
+            <p>I can design the site based on your needs and suggestions.</p>
+        </div>
+        <div class="service">
+            <h4>DEVELOPMENT</h4>
+            <p>I can develop the site based on your needs and suggestions.</p>
+        </div>
+        <div class="service">
+            <h4>MAINTENANCE</h4>
+            <p>I can maintain and update your site as needed.</p>
+        </div>
+    </div>
 </section>
 
-<section class="projects"></section>
+<section id="portfolio" class="projects"></section>
 
-<section class="skills" class="skills">
-        <h2>Skills</h2>
+<section id="skills" class="skills">
+        <div class="section-title">Skills</div>
 
     <ul class="skill-list">
         <li>Python</li>
@@ -52,7 +113,7 @@
     </ul>
 </section>
 
-<section class="contact" class="contact">
+<section id="contact" class="contact">
     <h2>Contact</h2>
     <p>Email: oluwayemisiessien@gmail.com</p>
 
