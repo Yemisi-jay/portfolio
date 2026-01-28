@@ -24,7 +24,7 @@ body {
 }
 
 .nav-container {
-  max-width: 1280px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -144,156 +144,108 @@ body {
   transform: translateY(-3px);
 }
 
-/* Main Content */
-.main-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - 73px);
-}
-
 .main-content p {
-  color: #737373;
+  color: #7a7575;
   font-size: 18px;
-}
+} 
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 12px 16px;
-  }
 
-  .logo-block {
-    width: 120px;
-    height: 32px;
-  }
-
-  .nav-right {
-    gap: 24px;
-  }
-
-  .nav-links {
-    gap: 20px;
-  }
-
-  .nav-links a {
-    font-size: 13px;
-  }
-
-  .btn-contact {
-    padding: 8px 16px;
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 640px) {
-  /* show mobile toggle */
-  .nav-toggle { display: inline-flex; }
-
-  .nav-right { gap: 0; }
-
-  /* hide inline links by default on small screens */
-  .nav-links {
-    display: none;
-  }
-
-  /* when nav is opened, show nav links as full-width vertical menu */
-  .navbar.nav-open .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    position: absolute;
-    top: 72px;
-    right: 16px;
-    background: #000;
-    padding: 18px 24px;
-    border-radius: 8px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
-    z-index: 1100;
-  }
-
-  .nav-container #nav-toggle:checked ~ .nav-right .nav-links a {
-    color: #fff;
-    padding: 6px 8px;
-  }
-}
-
-/* ================= HERO RIGHT ================= */
-.hero-right {
-    width: 50%;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-right img {
-    max-width: 70%;
-    height: auto;
-}
-
-/* ================= HERO LAYOUT ================= */
+ 
 .hero {
   display: flex;
   min-height: 80vh;
   overflow: hidden;
+  position: relative;
+  background: #e5e5e5; /*left panel color as base */
 }
+
 
 .hero-left {
   width: 50%;
-  background: #e9e9e9;
+  background: #e5e5e5;
+}
+
+.hero-right {
+  width: 50%;
+  background: #000;
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* .picture-frame {
+  display: inline-block;
+  height: 100%;
+  width: 200%;
+} */
+
+/* mobile adjustments for hero diagonal: remove skewed background and stack panels */
+@media (max-width: 768px) {
+  .hero { flex-direction: column; }
+  .hero::before { display: none; }
+  .hero-left, .hero-right { width: 100%; padding: 60px 30px; }
+  .hero-right img { max-width: 60%; }
+}
+
+/* left and right columns sit above the pseudo element */
+.hero-left,
+.hero-right {
+  width: 50%;
+  position: relative;
+  z-index: 1;
   padding: 96px 80px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-.hero-left .intro {
-  color: #6b6b6b;
-  margin-bottom: 8px;
-}
+.hero-left { justify-content: flex-start; flex-direction: column; }
 
-.hero-left h1 {
-  font-size: 48px;
-  margin: 6px 0 8px;
-}
+.hero-right img { max-width: 75%; height: auto; display: block; }
 
-.hero-left .role {
-  color: #9a9a9a;
-  margin-bottom: 24px;
-}
 
-/* give the black right panel a diagonal edge */
-.hero-right {
-  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
-}
-
-/* ================= IT BERRIES ================= */
-.berries {
-    background: #111;
-    color: #fff;
-  padding: 46px 80px;
-  margin-top: -40px;
-}
-
-.berries h2 {
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-.berries p {
+.summary {
     max-width: 700px;
-    font-size: 14px;
-    line-height: 1.6;
+    margin: 60px auto;
 }
 
-.read-more {
-    display: inline-block;
-    margin-top: 20px;
-    color: #fff;
-    text-decoration: none;
-    border-bottom: 1px solid #fff;
+
+.toggle {
+    display: none;
 }
+
+/* Text handling */
+.summary-text {
+    max-height: 120px; /* Approx. 3 lines */
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* Show more text when checkbox is checked */
+.toggle:checked ~ .summary-text {
+    max-height: 2000px; /* Adjust as needed */
+}
+
+/* Read more button */
+.read-more-btn {
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+/* Button text toggle */
+.read-more-btn::after {
+    content: "READ MORE";
+}
+
+.toggle:checked ~ .read-more-btn::after {
+    content: "READ LESS";
+}
+
 
 /* ================= ABOUT ================= */
 .about {
@@ -350,96 +302,13 @@ body {
     text-align: center;
 }
 
-
-@media (max-width: 768px) {
-
-    /* NAVBAR */
-    .navbar {
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .navbar nav {
-        margin-top: 15px;
-    }
-
-    .navbar nav a {
-        display: block;
-        margin: 10px 0;
-        color: #000;
-    }
-
-    .contact-btn {
-        border-color: #000;
-    }
-
-    /* HERO */
-    .hero {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .hero-left,
-    .hero-right {
-        width: 100%;
-    }
-
-    .hero-right {
-        order: -1;
-        padding: 40px 0;
-    }
-
-    .hero-left {
-        padding: 60px 30px;
-        text-align: center;
-    }
-
-    .hero-left h1 {
-        font-size: 32px;
-    }
-
-    .socials span {
-        margin: 5px;
-    }
-
-    /* IT BERRIES */
-    .berries {
-        padding: 40px 30px;
-        text-align: center;
-    }
-
-    /* ABOUT */
-    .about {
-        padding: 60px 30px;
-    }
-
-    /* SERVICES */
-    .services {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .service {
-        width: 100%;
-        margin-bottom: 30px;
-    }
+.skill-list {
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-
-@media (max-width: 1024px) {
-
-    .hero-left {
-        padding: 120px 50px;
-    }
-
-    .services {
-        flex-wrap: wrap;
-    }
-
-    .service {
-        width: 45%;
-        margin-bottom: 30px;
-    }
+.contact {
+    background-color: #fff;
 }
-

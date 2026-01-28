@@ -56,63 +56,91 @@
     </div>
 
     <div class="hero-right">
-        <img src="images/profile_picture.JPG" alt="Profile Image">
+        <div class="picture-frame">
+        <img src="{% static 'images/profile_image.jpeg' %}" alt="Profile Image">
+        </div
     </div>
 </section>
-{% comment %} IT BERRY SECTION {% endcomment %}
-<section class="berries">
-    <h2>IT BERRIES</h2>
-    <p>
-        Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus.
-        Sed ornare sit amet lorem sed viverra. In vel urna quis libero viverra facilisis ut ac est.
-    </p>
-    <a href="#" class="read-more">READ MORE</a>
-</section>
+{% comment %} SUMMARY SECTION {% endcomment %}
 
 
+<section class="summary">
+    <h2>Professional Summary</h2>
 
-<section id="about" class="about">
-    <div class="section-title">About Me</div>
-    <p class="about-text">
-        I am a backend software developer with experience building
-        database-driven applications using Django and Django REST Framework.
-        I enjoy solving problems and building scalable systems.
-    </p>
-    
-    <a href="#" class="explore">EXPLORE</a>
+    <input type="checkbox" id="toggle-summary" class="toggle-summary" />
 
-    <div class="services">
-        <div class="service">
-            <h4>DESIGN</h4>
-            <p>I can design the site based on your needs and suggestions.</p>
-        </div>
-        <div class="service">
-            <h4>DEVELOPMENT</h4>
-            <p>I can develop the site based on your needs and suggestions.</p>
-        </div>
-        <div class="service">
-            <h4>MAINTENANCE</h4>
-            <p>I can maintain and update your site as needed.</p>
-        </div>
+    <div class="summary-text">
+        <p>
+            Backend-Focused Full-Stack Developer. Highly motivated developer specializing in building robust,
+            scalable web applications using Python and the Django ecosystem. I have a strong foundation in
+            designing and implementing RESTful APIs with Django REST Framework, ensuring seamless communication
+            between front-end interfaces and complex back-end logic.
+        </p>
+
+        <p class="more">
+            I am passionate about writing clean, maintainable code and optimizing database performance
+            through efficient SQL queries and schema design. With a solid grasp of HTML, CSS, and version
+            control via Git, I bridge the gap between user experience and technical reliability to deliver
+            high-quality software solutions.
+
+            <br><br>
+            <strong>Key Areas of Expertise:</strong><br>
+            • Backend Development (Python & Django)<br>
+            • API Design (Django REST Framework)<br>
+            • Database Management & SQL Optimization<br>
+            • Frontend Integration (HTML5 & CSS3)<br>
+            • Version Control (Git & GitHub)
+        </p>
     </div>
+
+    <label for="toggle-summary" class="read-more-btn"></label>
 </section>
 
-<section id="portfolio" class="projects"></section>
 
-<section id="skills" class="skills">
-        <div class="section-title">Skills</div>
+{% comment %} ABOUT SECTION {% endcomment %}
+<section class="main-content">
+    <section id="about" class="about">
+        <div class="section-title">About Me</div>
+        <p class="about-text">
+            I am a backend software developer with experience building
+            database-driven applications using Django and Django REST Framework.
+            I enjoy solving problems and building scalable systems.
+        </p>
+        
+        <a href="#" class="explore">EXPLORE</a>
 
-    <ul class="skill-list">
-        <li>Python</li>
-        <li>Django</li>
-        <li>Django REST Framework</li>
-        <li>SQL</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>Git</li>
-    </ul>
+        <div class="services">
+            <div class="service">
+                <h4>DESIGN</h4>
+                <p>I can design the site based on your needs and suggestions.</p>
+            </div>
+            <div class="service">
+                <h4>DEVELOPMENT</h4>
+                <p>I can develop the site based on your needs and suggestions.</p>
+            </div>
+            <div class="service">
+                <h4>MAINTENANCE</h4>
+                <p>I can maintain and update your site as needed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="projects"></section>
+
+    <section id="skills" class="skills">
+            <div class="section-title">Skills</div>
+
+        <ul class="skill-list">
+            <li>Python</li>
+            <li>Django</li>
+            <li>Django REST Framework</li>
+            <li>SQL</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Git</li>
+        </ul>
+    </section>
 </section>
-
 <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>Email: oluwayemisiessien@gmail.com</p>
