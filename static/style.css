@@ -208,42 +208,38 @@ body {
 }
 
 
-.toggle {
-    display: none;
-}
-
-/* Text handling */
-.summary-text {
-    max-height: 120px; /* Approx. 3 lines */
-    overflow: hidden;
-    transition: max-height 0.4s ease;
+.summary-preview {
     line-height: 1.6;
     font-size: 15px;
 }
 
-/* Show more text when checkbox is checked */
-.toggle:checked ~ .summary-text {
-    max-height: 2000px; /* Adjust as needed */
-}
-
-/* Read more button */
-.read-more-btn {
-    display: inline-block;
-    margin-top: 10px;
-    cursor: pointer;
+/* collaspse state */
+.summary-details summary {
+    cursor:pointer;
     font-size: 14px;
     font-weight: 600;
-    color: #000;
-    border-bottom: 1px solid #000;
+    margin-top: 10px;
+    list-style: none;
 }
 
-/* Button text toggle */
-.read-more-btn::after {
+/* Show more text when checkbox is checked */
+.summary-details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* change label text*/
+.summary-details[open] summary::after {
+    content: "READ LESS";
+}
+.summary-details summary::after {
     content: "READ MORE";
 }
 
-.toggle:checked ~ .read-more-btn::after {
-    content: "READ LESS";
+/* spacing */
+.summary-details p {
+    margin-top: 15px;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 
