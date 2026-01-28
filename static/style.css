@@ -171,6 +171,39 @@ body {
   clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
 }
 
+.socials {
+    display: flex;
+    gap: 22px;              /* more space between icons */
+    margin-top: 35px;
+}
+
+.socials a {
+    width: 52px;            /* bigger clickable area */
+    height: 52px;
+    border: 1px solid #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.socials i {
+    width: 22px;            /* bigger icons */
+    height: 22px;
+    fill: #111;
+}
+
+/* Hover effect */
+.socials a:hover {
+    background: #111;
+    transform: translateY(-2px); /* subtle lift */
+}
+
+.socials a:hover i {
+    fill: #fff;
+}
+
+
 /* .picture-frame {
   display: inline-block;
   height: 100%;
