@@ -847,7 +847,10 @@ body[data-theme="dark"] .skill-badge:hover span {
     color: #121212;
 }
 
-
+.portfolio {
+  padding: 60px 20px;
+  text-align: center;
+}
 
 /* Contact Section */
 .contact {
