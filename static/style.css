@@ -864,7 +864,7 @@ body[data-theme="dark"] .skill-badge:hover span {
     font-size: 16px;
     line-height: 1.7;
     margin-bottom: 50px;
-    color: #333;
+    color: #e5e5e5;
 }
 
 /* ===== PROJECT GRID ===== */
@@ -876,7 +876,7 @@ body[data-theme="dark"] .skill-badge:hover span {
 
 /* ===== PROJECT CARD ===== */
 .project {
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     padding: 28px;
     transition: all 0.3s ease;
 }
@@ -896,7 +896,6 @@ body[data-theme="dark"] .skill-badge:hover span {
     font-size: 15px;
     line-height: 1.6;
     margin-bottom: 16px;
-    color: #444;
 }
 
 .project-tech,
@@ -923,8 +922,7 @@ body[data-theme="dark"] .skill-badge:hover span {
 }
 
 .project-links a:hover {
-    background: #111;
-    color: #fff;
+    color: #ffd166;
 }
 
 
