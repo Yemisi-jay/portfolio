@@ -847,10 +847,86 @@ body[data-theme="dark"] .skill-badge:hover span {
     color: #121212;
 }
 
+/* ===== PORTFOLIO SECTION ===== */
 .portfolio {
-  padding: 60px 20px;
-  text-align: center;
+    padding: 80px 0;
+    max-width: 1100px;
+    margin: 0 auto;
 }
+
+.portfolio h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.portfolio-intro {
+    max-width: 650px;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* ===== PROJECT GRID ===== */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+/* ===== PROJECT CARD ===== */
+.project {
+    border: 1px solid #ddd;
+    padding: 28px;
+    transition: all 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-4px);
+    border-color: #ffd166;
+}
+
+/* ===== PROJECT TEXT ===== */
+.project h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.project-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: #444;
+}
+
+.project-tech,
+.project-role {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* ===== PROJECT LINKS ===== */
+.project-links {
+    display: flex;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.project-links a {
+    font-size: 14px;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #111;
+    color: #111;
+    transition: all 0.25s ease;
+}
+
+.project-links a:hover {
+    background: #111;
+    color: #fff;
+}
+
 
 /* Contact Section */
 .contact {
@@ -920,7 +996,6 @@ body[data-theme="dark"] .skill-badge:hover span {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2px;
-  color: #1a1a1a;
   background-color: transparent;
   border: none;
   border-left: 2px solid #1a1a1a;
@@ -931,8 +1006,7 @@ body[data-theme="dark"] .skill-badge:hover span {
 }
 
 .btn-submit:hover {
-  background-color: #1a1a1a;
-  color: #fff;
+  color: #ffd166;
 }
 
 /* Footer*/ 
@@ -956,7 +1030,7 @@ body[data-theme="dark"] .skill-badge:hover span {
 }
 
 .back-to-top:hover {
-  opacity: 0.7;
+  color: #ffd166;
 }
 
 .arrow-up {
@@ -978,7 +1052,7 @@ body[data-theme="dark"] .skill-badge:hover span {
 }
 
 .footer-icon:hover {
-  opacity: 0.7;
+  color: #ffd166;
 }
 
 .footer-icon svg {
