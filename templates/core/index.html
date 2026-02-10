@@ -211,7 +211,12 @@
 
             <!-- Description Text -->
             <p class="skills-description">
-                Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna quis libero viverra facilisis ut ac est.
+                <p class="skills-intro">
+                    I specialize in building reliable, scalable web applications with a strong focus on backend development.
+                    My skill set spans server-side logic, API design, database management, and frontend integration,
+                    allowing me to deliver complete solutions that are both technically sound and user-focused.
+                </p>
+
             </p>
 
             <!-- Decorative Divider -->
@@ -295,7 +300,7 @@
                 <img src="{% static 'images/ShopIT_ecommerce_app_2.png' %}" alt="ShopIT E-commerce Application Screenshot 2">
             </a>
 
-            <a href="https://github.com/Yemisi-jay/portfolio" target="_blank" class="mosaic-item item5" title="Personal Portfolio">
+            <a href="#" target="_blank" class="mosaic-item item5" title="Personal Portfolio">
                 <img src="{% static 'images/portfolio-screenshot.png' %}" alt="Personal Portfolio Screenshot">
             </a>
         </div>
@@ -319,21 +324,29 @@
         </p>
         
 
-        <form class="contact-form">
+        <form class="contact-form" method="POST" action="{% url 'contact' %}">
+            {% csrf_token %}
             <div class="form-group">
-                <input type="text" placeholder="ENTER YOUR NAME*" required>
+                <input type="text" name="name" placeholder="ENTER YOUR NAME*" required>
             </div>
             <div class="form-group">
-                <input type="email" placeholder="ENTER YOUR EMAIL*" required>
+                <input type="email" name="email" placeholder="ENTER YOUR EMAIL*" required>
             </div>
             <div class="form-group">
-                <input type="tel" placeholder="PHONE NUMBER">
+                <input type="tel" name="phone" placeholder="PHONE NUMBER">
             </div>
             <div class="form-group">
-                <textarea placeholder="YOUR MESSAGE*" rows="5" required></textarea>
+                <textarea name="message" placeholder="YOUR MESSAGE*" rows="5" required></textarea>
             </div>
-            <a href="mailto:oluwayemisiessien@gmail.com" class="btn-submit">SUBMIT</a>
+            <button type="submit" class="btn-submit">SUBMIT</button>
         </form>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p class="message {{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </section>
 
