@@ -30,9 +30,9 @@ environ.Env.read_env(os.path.join(BASE_DIR,'.env'))
 SECRET_KEY = 'django-insecure-61m^3+x$ta2=4qnog3p(0+(xyxw&$io09k&9m0r35m$5_6c$qd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = ["desktop-cmtig32", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["desktop-cmtig32", "localhost", "127.0.0.1"] + [env('RENDER_EXTERNAL_URL')] if env('RENDER_EXTERNAL_URL') else []
 
 
 # Application definition
@@ -129,6 +129,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Email Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
